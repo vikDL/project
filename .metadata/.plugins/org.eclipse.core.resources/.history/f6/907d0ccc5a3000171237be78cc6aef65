@@ -1,0 +1,17 @@
+package backend.FTW;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.mobitel.MobitelBackend.dao.ProductDAO;
+
+public class ProductTest {
+	
+	AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
+	context.scan("backend.FTW");
+	context.refresh();
+	
+	
+	ProductDAO productDAO=(ProductDAO)context.getBean("productDAO");
+	
+
+}

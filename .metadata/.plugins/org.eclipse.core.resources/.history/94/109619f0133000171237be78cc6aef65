@@ -1,0 +1,5 @@
+package backend.FTW.config;
+
+public class AppConfig {
+
+}

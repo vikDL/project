@@ -1,0 +1,43 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Successful-MVCDemo</title>
+</head>
+<body>
+
+<h2 align="center">Successfully Logged In</h2>
+<%@ page import ="java.util.*" %>
+
+<%
+    
+
+	List <model.Customer> list = (List<model.Customer>) request.getAttribute("custdetail") ;
+	
+	out.println("<table align='center' border='1'>");
+	
+	out.println("<tr><td>User Name</td><td>Password</td><td>Customer Name</td><td>Gender</td>");
+	out.println("<td>Email</td><td>Mobile</td></tr>");
+	
+	int listsize=list.size();
+	int i=0;
+	while(i<listsize)
+	{
+		model.Customer customer=list.get(i);
+		out.println("<tr>");
+		out.println("<td>"+customer.getUsername()+"</td>");
+		out.println("<td>"+customer.getPassword()+"</td>");
+		out.println("<td>"+customer.getName()+"</td>");
+		
+		out.println("<td>"+customer.getPhone()+"</td>");
+		out.println("</tr>");
+		i++;
+	}
+	
+	out.println("</table>");
+
+%>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+package backend.FTW;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+
+
+public class ProductTest {
+	
+	AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
+	context.scan("backend.FTW");
+	context.refresh();
+	
+	
+	
+	
+	
+
+}

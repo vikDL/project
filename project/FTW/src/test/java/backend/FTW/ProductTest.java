@@ -1,0 +1,66 @@
+package backend.FTW;
+
+import java.util.List;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+
+
+import backend.FTW.dao.ProductDao;
+import backend.FTW.models.product;
+
+public class ProductTest {
+
+	public static void main(String[] args) {
+		AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
+		context.scan("backend.FTW");
+		context.refresh();
+		
+		ProductDao productDAO=(ProductDao)context.getBean("ProductDao");
+		
+	/*	product product=new product();
+		
+		product.setPid(111);
+		product.setPname("BattleField 1");
+		product.setCatid(10);
+		
+		product.setCost(19000);                                       //Insertion
+		product.setYear(2016);
+		product.setDesc("First person shooter game");
+		
+		productDAO.insertProduct(product);
+		
+		System.out.println("Product Inserted:");*/
+		
+/*		productDAO.deleteProduct(111);
+                                                                          //Deletion
+		System.out.println("Deleted");*/
+		
+		
+		/*List<product> list = productDAO.retrieveProduct();
+
+		for (product p : list) {
+			System.out.print(p.getPid() + ":::");
+			System.out.print(p.getPname() + ":::");
+			System.out.print(p.getCatid() + ":::");
+		                                                                      //Retrive
+			
+			System.out.print(p.getDesc() + ":::");
+			System.out.println(p.getCost() + ":::");
+
+		}*/
+		
+		product product = productDAO.getProduct(111);
+
+		product.setDesc("Battlefield 1 is a first-person shooter video game developed by EA DICE and published by Electronic Arts");
+		product.setCost(14000);
+		
+                                                                                     //updation
+		productDAO.updateProduct(product);
+
+		System.out.println("Product is Updated");
+		
+		
+	}
+
+}

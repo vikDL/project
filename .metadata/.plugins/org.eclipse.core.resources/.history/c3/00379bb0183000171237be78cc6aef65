@@ -1,0 +1,41 @@
+package backend.FTW.config;
+
+
+import java.util.Properties;
+
+import javax.sql.DataSource;
+
+import org.springframework.jdbc.datasource.*;;
+
+
+
+public class AppConfig {
+	
+	public DataSource getH2DataSource()
+	{
+		System.out.println("Data Source Method");
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		dataSource.setDriverClassName("org.h2.Driver");
+		dataSource.setUrl("jdbc:h2:tcp://localhost/~/test");
+		dataSource.setUsername("wik");
+		dataSource.setPassword("wik");
+		System.out.println("Data Source Created");
+		return dataSource;
+	}
+	public Properties getHibernateProperties()
+	{
+		System.out.println("Hibernate Properties -Entered");
+		Properties hibernate_prop=new Properties();
+		hibernate_prop.setProperty("hibernate.hbm2ddl.auto", "update");
+		hibernate_prop.put("hibernate.show_sql", "true"); //optional
+		hibernate_prop.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
+		System.out.println("Hibernate Prperty Object Created");
+		return hibernate_prop;
+		
+	}
+	
+	
+	
+	
+
+}
